@@ -23,7 +23,11 @@ export function numberToString(value: number | null): string {
     return value.toString();
 }
 
-export function parseNumberStrict(input: string): number | null {
+export function parseNumberStrict(input: string | null): number | null {
+
+    if (input === null) {
+        return null;
+    }
 
     const stringWithDot: string = input.replace(',', '.');
 
@@ -38,7 +42,11 @@ export function parseNumberStrict(input: string): number | null {
     }
 }
 
-export function parseNumberStrictAllowInfinite(input: string): number {
+export function parseNumberStrictAllowInfinite(input: string | null): number | null {
+
+    if (input === null) {
+        return null;
+    }
 
     const stringWithDot: string = input.replace(',', '.');
 
