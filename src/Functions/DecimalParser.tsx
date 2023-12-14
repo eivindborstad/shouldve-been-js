@@ -42,10 +42,10 @@ export function parseNumberStrict(input: string | null): number | null {
     }
 }
 
-export function parseNumberStrictAllowInfinite(input: string | null): number | null {
+export function parseNumberStrictAllowInfinite(input: string | null): number {
 
     if (input === null) {
-        return null;
+        return NaN;
     }
 
     const stringWithDot: string = input.replace(',', '.');

@@ -2,7 +2,7 @@ import { getAmongAllowedValues, hasDuplicates, removeDuplicates, removeNulls, sp
 import { base64DecodeBinaryBlob, base64EncodeBinaryBlob } from './Functions/Base64Encoding';
 import { camelCaseToWords } from './Functions/CamelCaseToWords';
 import { checkVersion } from './Functions/CheckVersionNumbers';
-import { isFloatsEqual } from './Functions/CompareFloats';
+import { floatDelta, isFloatsEqual } from './Functions/CompareFloats';
 import { sha256 } from './Functions/Crypto';
 import { numberToMinMaxDecimalsString, numberToString, parseNumberStrict, parseNumberStrictAllowInfinite, roundToNDecimals } from './Functions/DecimalParser';
 import { isInstalled, isSafari } from './Functions/DeviceDetection';
@@ -18,7 +18,7 @@ export { getAmongAllowedValues, hasDuplicates, removeDuplicates, removeNulls, sp
 export { base64EncodeBinaryBlob, base64DecodeBinaryBlob };
 export { camelCaseToWords };
 export { checkVersion };
-export { isFloatsEqual };
+export { isFloatsEqual, floatDelta };
 export { sha256 };
 export { numberToMinMaxDecimalsString, numberToString, parseNumberStrict, parseNumberStrictAllowInfinite, roundToNDecimals };
 export { isSafari, isInstalled };
