@@ -6,14 +6,19 @@ export function transposeMatrix<T>(matrix: T[][]): T[][] {
 
     const newArray: T[][] = [];
     
-    for (let i: number = 0; i < matrix[0].length; i++) {
+    for (let i: number = 0; i < (matrix[0]?.length ?? 0); i++) {
         newArray.push([]);
     }
 
     for (let i: number = 0; i < matrix.length; i++) {
 
-        for (let j: number = 0; j < matrix[0].length; j++) {
-            newArray[j].push(matrix[i][j]);
+        for (let j: number = 0; j < (matrix[0]?.length ?? 0); j++) {
+
+            const element: T | undefined = matrix[i]?.[j];
+
+            if (element !== undefined) {
+                newArray[j]?.push(element);
+            }
         }
     }
 

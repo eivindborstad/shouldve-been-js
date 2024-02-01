@@ -34,7 +34,7 @@ export async function importFromTsv(blob: Blob, hasHeader: boolean, columnHeader
         return [];
     }
 
-    const headers: string[] = columnHeaders.length > 0 ? columnHeaders : filteredRows[0].split('\t');
+    const headers: string[] = columnHeaders.length > 0 ? columnHeaders : (filteredRows[0]?.split('\t') ?? []);
 
     const dataObjects: Map<string, string>[] = [];
 
@@ -47,7 +47,7 @@ export async function importFromTsv(blob: Blob, hasHeader: boolean, columnHeader
             const dataObject: Map<string, string> = new Map<string, string>();
 
             for (let i: number = 0; i < dataCells.length; i++) {
-                dataObject.set(headers[i], dataCells[i]);
+                dataObject.set(headers[i] ?? '', dataCells[i] ?? '');
             }
 
             dataObjects.push(dataObject);

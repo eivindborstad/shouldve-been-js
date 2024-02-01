@@ -17,8 +17,8 @@ export function median(numbers: number[]): number {
     const sortedNumbers: number[] = [...numbers].sort((a: number, b: number) => a - b);
 
     if (isEven(sortedNumbers.length)) {
-        return (sortedNumbers[(sortedNumbers.length / 2) - 1] + sortedNumbers[sortedNumbers.length / 2]) / 2;
+        return ((sortedNumbers[(sortedNumbers.length / 2) - 1] ?? NaN) + (sortedNumbers[sortedNumbers.length / 2] ?? NaN) / 2);
     } else {
-        return sortedNumbers[Math.floor(sortedNumbers.length / 2)];
+        return sortedNumbers[Math.floor(sortedNumbers.length / 2)] ?? NaN;
     }
 }

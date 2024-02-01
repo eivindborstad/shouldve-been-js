@@ -1,5 +1,4 @@
 import { getAmongAllowedValues, hasDuplicates, removeDuplicates, removeNulls, splitStringByMultipleDelimiters, transposeMatrix } from './Functions/ArrayOperations';
-import { base64DecodeBinaryBlob, base64EncodeBinaryBlob } from './Functions/Base64Encoding';
 import { camelCaseToWords } from './Functions/CamelCaseToWords';
 import { checkVersion } from './Functions/CheckVersionNumbers';
 import { floatDelta, isFloatsEqual } from './Functions/CompareFloats';
@@ -15,7 +14,6 @@ import { exportToTsv, importFromTsv } from './Functions/Tsv';
 import { getUniqueId } from './Functions/UniqueId';
 
 export { getAmongAllowedValues, hasDuplicates, removeDuplicates, removeNulls, splitStringByMultipleDelimiters, transposeMatrix };
-export { base64EncodeBinaryBlob, base64DecodeBinaryBlob };
 export { camelCaseToWords };
 export { checkVersion };
 export { isFloatsEqual, floatDelta };

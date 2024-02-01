@@ -8,12 +8,13 @@ export function checkVersion(currentVersion: string, minVersion: string): boolea
     for (let i: number = 0; i < minVersionList.length; i++) {
 
         const currentVersionNumber: number = currentVersionList[i] ?? 0;
+        const minVersionNumber: number = minVersionList[i] ?? 0;
     
-        if (minVersionList[i] < currentVersionNumber) {
+        if (minVersionNumber < currentVersionNumber) {
             return true;
         }
     
-        if (minVersionList[i] > currentVersionNumber) {
+        if (minVersionNumber > currentVersionNumber) {
             return false;
         }
     }
