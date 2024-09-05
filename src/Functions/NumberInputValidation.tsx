@@ -24,7 +24,7 @@ export function validateNumberInput(input: string, allowDecimals: boolean, minVa
     if (numberValue !== null && (Number.isInteger(numberValue) || allowDecimals) && (minValue === null || numberValue >= minValue) && (maxValue === null || numberValue <= maxValue)) {
         
         if (!allowDecimals) {
-            return modifiedInput.replace('.', '');
+            return modifiedInput.replace(',', '').replace('.', '');
         } else {
             return modifiedInput;
         }
