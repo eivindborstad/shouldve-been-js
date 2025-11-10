@@ -30,7 +30,7 @@ export async function importFromTsv(blob: Blob, hasHeader: boolean, columnHeader
 
     const filteredRows: string[] = rows.filter((row: string) => row !== '' && !row.startsWith('#')); //remove empty rows and lines starting with hashtag
 
-    if (filteredRows.length < 2) {
+    if (filteredRows.length < (hasHeader ? 2 : 1)) { //need at least 2 rows if the first one is a header
         return [];
     }
 
@@ -42,16 +42,13 @@ export async function importFromTsv(blob: Blob, hasHeader: boolean, columnHeader
 
         const dataCells: string[] = row.split('\t');
 
-        if (dataCells.length === headers.length) { //ignores rows with too few/many values
+        const dataObject: Map<string, string> = new Map<string, string>();
 
-            const dataObject: Map<string, string> = new Map<string, string>();
-
-            for (let i: number = 0; i < dataCells.length; i++) {
-                dataObject.set(headers[i] ?? '', dataCells[i] ?? '');
-            }
-
-            dataObjects.push(dataObject);
+        for (let i: number = 0; i < headers.length; i++) {
+            dataObject.set(headers[i] ?? '', dataCells[i] ?? ''); //if there are fewer/more columns in the datarow than in the header, the first ones will be used and the rest will be empty
         }
+
+        dataObjects.push(dataObject);
     });
 
     return dataObjects;
